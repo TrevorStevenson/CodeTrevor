@@ -10,12 +10,24 @@ import Foundation
 
 extension UIView
 {
-    func flyInFromTop(withTopConstraint topConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    struct Key
     {
-        set(associatedObject: topConstraint.constant, forKey: "topConstraint")
+        static var bottomConstraint = "bottomConstraint"
+        static var topConstraint = "topConstraint"
+    }
+    
+    var bottomConstant: CGFloat
+    {
+        get { return objc_getAssociatedObject(self, &Key.bottomConstraint) as! CGFloat }
+        set(value) { objc_setAssociatedObject(self, &Key.bottomConstraint, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    }
+    
+    public func flyInFromTop(withTopConstraint topConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    {
+        set(associatedObject: topConstraint.constant, forKey: &Key.topConstraint)
         topConstraint.constant = -bounds.height
         layoutIfNeeded()
-        topConstraint.constant = getAssociatedObject(forKey: "topConstraint") as! CGFloat
+        topConstraint.constant = getAssociatedObject(forKey: &Key.topConstraint) as! CGFloat
         UIView.animate(withDuration: duration, animations: { 
             
             self.layoutIfNeeded()
@@ -27,12 +39,12 @@ extension UIView
         }
     }
     
-    func flyInFromBottom(withBottomConstraint bottomConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyInFromBottom(withBottomConstraint bottomConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
     {
-        set(associatedObject: bottomConstraint.constant, forKey: "bottomConstraint")
+        bottomConstant = bottomConstraint.constant
         bottomConstraint.constant = -bounds.height
         layoutIfNeeded()
-        bottomConstraint.constant = getAssociatedObject(forKey: "bottomConstraint") as! CGFloat
+        bottomConstraint.constant = bottomConstant
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()

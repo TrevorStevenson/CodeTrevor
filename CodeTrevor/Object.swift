@@ -11,15 +11,13 @@ import ObjectiveC
 
 extension NSObject
 {
-    func set(associatedObject: Any, forKey key: String)
+    func set(associatedObject: Any, forKey key: inout String)
     {
-        var associatedKey = key
-        objc_setAssociatedObject(self, &associatedKey, associatedObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(self, key, associatedObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
-    func getAssociatedObject(forKey key: String) -> Any
+    func getAssociatedObject(forKey key: inout String) -> Any
     {
-        var associatedKey = key
-        return objc_getAssociatedObject(self, &associatedKey)
+        return objc_getAssociatedObject(self, key)
     }
 }
