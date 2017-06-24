@@ -10,6 +10,7 @@
 		3B4C6BB21EFEBD1B00B97359 /* CodeTrevor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4C6BA81EFEBD1B00B97359 /* CodeTrevor.framework */; };
 		3B4C6BB71EFEBD1B00B97359 /* CodeTrevorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BB61EFEBD1B00B97359 /* CodeTrevorTests.swift */; };
 		3B4C6BB91EFEBD1B00B97359 /* CodeTrevor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B4C6BAB1EFEBD1B00B97359 /* CodeTrevor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B4C6BC31EFEBE2200B97359 /* Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BC21EFEBE2200B97359 /* Fade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		3B4C6BB11EFEBD1B00B97359 /* CodeTrevorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeTrevorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4C6BB61EFEBD1B00B97359 /* CodeTrevorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTrevorTests.swift; sourceTree = "<group>"; };
 		3B4C6BB81EFEBD1B00B97359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B4C6BC21EFEBE2200B97359 /* Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				3B4C6BAB1EFEBD1B00B97359 /* CodeTrevor.h */,
 				3B4C6BAC1EFEBD1B00B97359 /* Info.plist */,
+				3B4C6BC21EFEBE2200B97359 /* Fade.swift */,
 			);
 			path = CodeTrevor;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 					3B4C6BA71EFEBD1B00B97359 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = Q443KXN5V7;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					3B4C6BB01EFEBD1B00B97359 = {
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4C6BC31EFEBE2200B97359 /* Fade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +329,7 @@
 		3B4C6BBD1EFEBD1B00B97359 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = Q443KXN5V7;
@@ -336,6 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TripleTorus.CodeTrevor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,6 +350,7 @@
 		3B4C6BBE1EFEBD1B00B97359 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = Q443KXN5V7;
@@ -362,6 +370,7 @@
 		3B4C6BC01EFEBD1B00B97359 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = Q443KXN5V7;
 				INFOPLIST_FILE = CodeTrevorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -374,6 +383,7 @@
 		3B4C6BC11EFEBD1B00B97359 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = Q443KXN5V7;
 				INFOPLIST_FILE = CodeTrevorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
