@@ -28,7 +28,4 @@ Pod::Spec.new do |s|
   # 8
   s.source_files = "CodeTrevor/**/*.{swift}"
 
-  # 9
-  s.resources = "CodeTrevor/**/*.{png,storyboard}"
-
 end
