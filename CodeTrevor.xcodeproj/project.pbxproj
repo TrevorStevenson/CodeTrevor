@@ -13,6 +13,7 @@
 		3B4C6BC31EFEBE2200B97359 /* Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BC21EFEBE2200B97359 /* Fade.swift */; };
 		3B4C6BC51EFEC02F00B97359 /* Fly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BC41EFEC02F00B97359 /* Fly.swift */; };
 		3B4C6BC71EFEC18300B97359 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BC61EFEC18300B97359 /* Object.swift */; };
+		3B938F3F1EFF293500EF2923 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B938F3E1EFF293500EF2923 /* Scale.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		3B4C6BC21EFEBE2200B97359 /* Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fade.swift; sourceTree = "<group>"; };
 		3B4C6BC41EFEC02F00B97359 /* Fly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fly.swift; sourceTree = "<group>"; };
 		3B4C6BC61EFEC18300B97359 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		3B938F3E1EFF293500EF2923 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				3B4C6BAC1EFEBD1B00B97359 /* Info.plist */,
 				3B4C6BC21EFEBE2200B97359 /* Fade.swift */,
 				3B4C6BC41EFEC02F00B97359 /* Fly.swift */,
+				3B938F3E1EFF293500EF2923 /* Scale.swift */,
 				3B4C6BC61EFEC18300B97359 /* Object.swift */,
 			);
 			path = CodeTrevor;
@@ -210,6 +213,7 @@
 			files = (
 				3B4C6BC31EFEBE2200B97359 /* Fade.swift in Sources */,
 				3B4C6BC71EFEC18300B97359 /* Object.swift in Sources */,
+				3B938F3F1EFF293500EF2923 /* Scale.swift in Sources */,
 				3B4C6BC51EFEC02F00B97359 /* Fly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +424,7 @@
 				3B4C6BBE1EFEBD1B00B97359 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B4C6BBF1EFEBD1B00B97359 /* Build configuration list for PBXNativeTarget "CodeTrevorTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +433,7 @@
 				3B4C6BC11EFEBD1B00B97359 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

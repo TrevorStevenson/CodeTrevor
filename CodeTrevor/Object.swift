@@ -11,6 +11,8 @@ import ObjectiveC
 
 extension NSObject
 {
+    func nop() {}
+    
     func set(associatedObject: Any, forKey key: inout String)
     {
         objc_setAssociatedObject(self, key, associatedObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
