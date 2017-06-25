@@ -18,27 +18,27 @@ extension UIView
         static var leftConstraint = "leftConstraint"
     }
     
-    var bottomConstant: CGFloat
+    var bottomConstant: CGFloat?
     {
-        get { return objc_getAssociatedObject(self, &Key.bottomConstraint) as! CGFloat }
+        get { return objc_getAssociatedObject(self, &Key.bottomConstraint) as? CGFloat }
         set(value) { objc_setAssociatedObject(self, &Key.bottomConstraint, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    var topConstant: CGFloat
+    var topConstant: CGFloat?
     {
-        get { return objc_getAssociatedObject(self, &Key.topConstraint) as! CGFloat }
+        get { return objc_getAssociatedObject(self, &Key.topConstraint) as? CGFloat }
         set(value) { objc_setAssociatedObject(self, &Key.topConstraint, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    var rightConstant: CGFloat
+    var rightConstant: CGFloat?
     {
-        get { return objc_getAssociatedObject(self, &Key.rightConstraint) as! CGFloat }
+        get { return objc_getAssociatedObject(self, &Key.rightConstraint) as? CGFloat }
         set(value) { objc_setAssociatedObject(self, &Key.rightConstraint, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    var leftConstant: CGFloat
+    var leftConstant: CGFloat?
     {
-        get { return objc_getAssociatedObject(self, &Key.leftConstraint) as! CGFloat }
+        get { return objc_getAssociatedObject(self, &Key.leftConstraint) as? CGFloat }
         set(value) { objc_setAssociatedObject(self, &Key.leftConstraint, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
@@ -47,7 +47,7 @@ extension UIView
         topConstant = topConstraint.constant
         topConstraint.constant = -bounds.height
         layoutIfNeeded()
-        topConstraint.constant = topConstant
+        if let top = topConstant { topConstraint.constant = top }
         UIView.animate(withDuration: duration, animations: { 
             
             self.layoutIfNeeded()
@@ -64,7 +64,7 @@ extension UIView
         bottomConstant = bottomConstraint.constant
         bottomConstraint.constant = -bounds.height
         layoutIfNeeded()
-        bottomConstraint.constant = bottomConstant
+        if let bottom = bottomConstant { bottomConstraint.constant = bottom }
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -81,7 +81,7 @@ extension UIView
         rightConstant = rightConstraint.constant
         rightConstraint.constant = -bounds.width
         layoutIfNeeded()
-        rightConstraint.constant = rightConstant
+        if let right = rightConstant { rightConstraint.constant = right }
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -98,7 +98,7 @@ extension UIView
         leftConstant = leftConstraint.constant
         leftConstraint.constant = -bounds.width
         layoutIfNeeded()
-        leftConstraint.constant = leftConstant
+        if let left = leftConstant { leftConstraint.constant = left }
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -109,4 +109,69 @@ extension UIView
             
         }
     }
+    
+    public func flyOutToTop(withTopConstraint topConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    {
+        topConstant = topConstraint.constant
+        layoutIfNeeded()
+        topConstraint.constant = -bounds.height
+        UIView.animate(withDuration: duration, animations: {
+            
+            self.layoutIfNeeded()
+            
+        }) { (finished) in
+            
+            completion()
+            
+        }
+    }
+    
+    public func flyOutToBottom(withBottomConstraint bottomConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    {
+        bottomConstant = bottomConstraint.constant
+        layoutIfNeeded()
+        bottomConstraint.constant = -bounds.height
+        UIView.animate(withDuration: duration, animations: {
+            
+            self.layoutIfNeeded()
+            
+        }) { (finished) in
+            
+            completion()
+            
+        }
+    }
+    
+    public func flyOutToRight(withRightConstraint rightConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    {
+        rightConstant = rightConstraint.constant
+        layoutIfNeeded()
+        rightConstraint.constant = -bounds.width
+        UIView.animate(withDuration: duration, animations: {
+            
+            self.layoutIfNeeded()
+            
+        }) { (finished) in
+            
+            completion()
+            
+        }
+    }
+    
+    public func flyOutToLeft(withLeftConstraint leftConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    {
+        leftConstant = leftConstraint.constant
+        layoutIfNeeded()
+        leftConstraint.constant = -bounds.width
+        UIView.animate(withDuration: duration, animations: {
+            
+            self.layoutIfNeeded()
+            
+        }) { (finished) in
+            
+            completion()
+            
+        }
+    }
+
 }

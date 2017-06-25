@@ -35,6 +35,35 @@ class LinkedList<T: Equatable>
         rootNode.next = Node(withValue: value)
     }
     
+    func remove(withValue value: T)
+    {
+        if let rootNode = root
+        {
+            guard rootNode.value != value else
+            {
+                root = rootNode.next
+                return
+            }
+        }
+        else { return }
+        
+        var currentNode = root
+        var previousNode: Node<T>?
+        
+        while let node = currentNode
+        {
+            if let nodeValue = node.value, nodeValue == value, let prev = previousNode
+            {
+                prev.next = node.next
+                return
+            }
+            
+            previousNode = node
+            currentNode = node.next
+        }
+    }
+
+    
     func find(withValue value: T) -> Node<T>?
     {
         var currentNode = root
@@ -57,6 +86,4 @@ class LinkedList<T: Equatable>
         if find(withValue: value) != nil { return true }
         return false
     }
-    
-    
 }
