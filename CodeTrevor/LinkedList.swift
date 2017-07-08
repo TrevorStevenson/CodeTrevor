@@ -8,23 +8,23 @@
 
 import Foundation
 
-class Node<T>
+public class Node<T>
 {
-    var value: T?
-    var next: Node?
+    public var value: T?
+    public var next: Node?
     
-    init(withValue: T)
+    public init(withValue: T)
     {
         value = withValue
     }
 }
 
 
-class LinkedList<T: Equatable>
+public class LinkedList<T: Equatable>
 {
-    var root: Node<T>?
+    public var root: Node<T>?
     
-    func add(value: T)
+    public func add(value: T)
     {
         guard let rootNode = root else
         {
@@ -35,7 +35,7 @@ class LinkedList<T: Equatable>
         rootNode.next = Node(withValue: value)
     }
     
-    func remove(withValue value: T)
+    public func remove(withValue value: T)
     {
         if let rootNode = root
         {
@@ -64,7 +64,7 @@ class LinkedList<T: Equatable>
     }
 
     
-    func find(withValue value: T) -> Node<T>?
+    public func find(withValue value: T) -> Node<T>?
     {
         var currentNode = root
         
@@ -81,7 +81,7 @@ class LinkedList<T: Equatable>
         return nil
     }
     
-    func contains(value: T) -> Bool
+    public func contains(value: T) -> Bool
     {
         if find(withValue: value) != nil { return true }
         return false

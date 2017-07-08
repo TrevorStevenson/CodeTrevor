@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension UIView
+public extension UIView
 {
-    func fadeIn(withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
+    public func fadeIn(withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         alpha = 0.0
         isHidden = false
@@ -26,7 +26,7 @@ extension UIView
         }
     }
     
-    func fadeOut(withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
+    public func fadeOut(withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         alpha = 1.0
         
@@ -42,7 +42,7 @@ extension UIView
         }
     }
     
-    func fadeInAndOut(withFadeDuration fadeDuration: TimeInterval, delay: TimeInterval, completion: @escaping () -> Void = {})
+    public func fadeInAndOut(withFadeDuration fadeDuration: TimeInterval, delay: TimeInterval, completion: @escaping () -> Void = {})
     {
         fadeIn
         {

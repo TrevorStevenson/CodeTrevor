@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension UIView
+public extension UIView
 {
-    func scale(from: Float, to: Float, withDuration duration: TimeInterval, repeatCount: Float, autoreverses: Bool)
+    public func scale(from: Float, to: Float, withDuration duration: TimeInterval, repeatCount: Float, autoreverses: Bool)
     {
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.fromValue = from
@@ -21,13 +21,13 @@ extension UIView
         layer.add(scaleAnimation, forKey: nil)
     }
     
-    func scaleUp(withDuration duration: TimeInterval, to: Float = 1.25, completion: () -> Void = {})
+    public func scaleUp(withDuration duration: TimeInterval, to: Float = 1.25, completion: () -> Void = {})
     {
         scale(from: 1.0, to: to, withDuration: duration, repeatCount: 1, autoreverses: true)
         completion()
     }
     
-    func scaleDown(withDuration duration: TimeInterval, to: Float = 0.75, completion: () -> Void = {})
+    public func scaleDown(withDuration duration: TimeInterval, to: Float = 0.75, completion: () -> Void = {})
     {
         scale(from: 1.0, to: to, withDuration: duration, repeatCount: 1, autoreverses: true)
         completion()
