@@ -42,12 +42,27 @@ public extension UIView
         set(value) { objc_setAssociatedObject(self, &Key.leftConstraint, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    public func flyInFromTop(withTopConstraint topConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyInFromTop(withTopConstraint topConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
-        topConstant = topConstraint.constant
-        topConstraint.constant = -bounds.height
+        guard let top = topConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: { 
+                
+                self.frame.origin.y = 0
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+        
+        topConstant = top.constant
+        top.constant = -bounds.height
         layoutIfNeeded()
-        if let top = topConstant { topConstraint.constant = top }
+        if let topConst = topConstant { top.constant = topConst }
         UIView.animate(withDuration: duration, animations: { 
             
             self.layoutIfNeeded()
@@ -59,12 +74,30 @@ public extension UIView
         }
     }
     
-    public func flyInFromBottom(withBottomConstraint bottomConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyInFromBottom(withBottomConstraint bottomConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
-        bottomConstant = bottomConstraint.constant
-        bottomConstraint.constant = -bounds.height
+        guard let bottom = bottomConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: {
+                
+                if let superView = self.superview
+                {
+                    self.frame.origin.y = superView.bounds.height - self.bounds.height
+                }
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+        
+        bottomConstant = bottom.constant
+        bottom.constant = -bounds.height
         layoutIfNeeded()
-        if let bottom = bottomConstant { bottomConstraint.constant = bottom }
+        if let bottomConst = bottomConstant { bottom.constant = bottomConst }
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -76,12 +109,30 @@ public extension UIView
         }
     }
     
-    public func flyInFromRight(withRightConstraint rightConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyInFromRight(withRightConstraint rightConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void)
     {
-        rightConstant = rightConstraint.constant
-        rightConstraint.constant = -bounds.width
+        guard let right = rightConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: {
+                
+                if let superView = self.superview
+                {
+                    self.frame.origin.x = superView.bounds.width - self.bounds.width
+                }
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+
+        rightConstant = right.constant
+        right.constant = -bounds.width
         layoutIfNeeded()
-        if let right = rightConstant { rightConstraint.constant = right }
+        if let rightConst = rightConstant { right.constant = rightConst }
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -93,12 +144,27 @@ public extension UIView
         }
     }
     
-    public func flyInFromLeft(withLeftConstraint leftConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyInFromLeft(withLeftConstraint leftConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void)
     {
-        leftConstant = leftConstraint.constant
-        leftConstraint.constant = -bounds.width
+        guard let left = leftConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: {
+                
+                self.frame.origin.x = 0
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+        
+        leftConstant = left.constant
+        left.constant = -bounds.width
         layoutIfNeeded()
-        if let left = leftConstant { leftConstraint.constant = left }
+        if let leftConst = leftConstant { left.constant = leftConst }
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -110,11 +176,26 @@ public extension UIView
         }
     }
     
-    public func flyOutToTop(withTopConstraint topConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyOutToTop(withTopConstraint topConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void)
     {
-        topConstant = topConstraint.constant
+        guard let top = topConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: {
+                
+                self.frame.origin.y = 0 - self.bounds.height
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+        
+        topConstant = top.constant
         layoutIfNeeded()
-        topConstraint.constant = -bounds.height
+        top.constant = -bounds.height
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -126,11 +207,29 @@ public extension UIView
         }
     }
     
-    public func flyOutToBottom(withBottomConstraint bottomConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyOutToBottom(withBottomConstraint bottomConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void)
     {
-        bottomConstant = bottomConstraint.constant
+        guard let bottom = bottomConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: {
+                
+                if let superView = self.superview
+                {
+                    self.frame.origin.y = superView.bounds.height
+                }
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+
+        bottomConstant = bottom.constant
         layoutIfNeeded()
-        bottomConstraint.constant = -bounds.height
+        bottom.constant = -bounds.height
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -142,11 +241,29 @@ public extension UIView
         }
     }
     
-    public func flyOutToRight(withRightConstraint rightConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyOutToRight(withRightConstraint rightConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void)
     {
-        rightConstant = rightConstraint.constant
+        guard let right = rightConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: {
+                
+                if let superView = self.superview
+                {
+                    self.frame.origin.x = superView.bounds.width
+                }
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+        
+        rightConstant = right.constant
         layoutIfNeeded()
-        rightConstraint.constant = -bounds.width
+        right.constant = -bounds.width
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
@@ -158,11 +275,26 @@ public extension UIView
         }
     }
     
-    public func flyOutToLeft(withLeftConstraint leftConstraint: NSLayoutConstraint, duration: TimeInterval = 1, completion: @escaping () -> Void)
+    public func flyOutToLeft(withLeftConstraint leftConstraint: NSLayoutConstraint?, duration: TimeInterval = 1, completion: @escaping () -> Void)
     {
-        leftConstant = leftConstraint.constant
+        guard let left = leftConstraint else
+        {
+            UIView.animate(withDuration: duration, animations: {
+                
+                self.frame.origin.x = 0 - self.bounds.height
+                
+            }) { (finished) in
+                
+                completion()
+                
+            }
+            
+            return
+        }
+        
+        leftConstant = left.constant
         layoutIfNeeded()
-        leftConstraint.constant = -bounds.width
+        left.constant = -bounds.width
         UIView.animate(withDuration: duration, animations: {
             
             self.layoutIfNeeded()
