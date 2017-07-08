@@ -44,12 +44,12 @@ public extension UIView
     
     public func fadeInAndOut(withFadeDuration fadeDuration: TimeInterval, delay: TimeInterval, completion: @escaping () -> Void = {})
     {
-        fadeIn
+        fadeIn(withDuration: fadeDuration, completion:
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute:
             {
-                self.fadeOut { completion() }
+                self.fadeOut(withDuration: fadeDuration, completion: { completion() })
             })
-        }
+        })
     }
 }
