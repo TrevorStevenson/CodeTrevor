@@ -32,7 +32,7 @@ public extension UIView
         
         UIView.animate(withDuration: duration, animations: {
             
-            self.alpha = 1.0
+            self.alpha = 0.0
             
         }) { (finished) in
             

@@ -10,18 +10,25 @@ import Foundation
 
 public extension UIView
 {
-    public func flyInFromTop(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    func deactivateConstraints()
     {
-        if autolayout
+        guard let superView = superview else { return }
+        
+        for view in superView.subviews
         {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
+            view.translatesAutoresizingMaskIntoConstraints = true
         }
+        
+        NSLayoutConstraint.deactivate(superView.constraints)
+    }
+    
+    public func flyInFromTop(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
+    {
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            self.frame.origin.y = 0
+            self.frame.origin.y = toValue
             
         }) { (finished) in
             
@@ -30,21 +37,13 @@ public extension UIView
         }
     }
     
-    public func flyInFromBottom(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyInFromBottom(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
     {
-        if autolayout
-        {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
-        }
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            if let superView = self.superview
-            {
-                self.frame.origin.y = superView.bounds.height - self.bounds.height
-            }
+            self.frame.origin.y = toValue
             
         }) { (finished) in
             
@@ -53,21 +52,13 @@ public extension UIView
         }
     }
     
-    public func flyInFromRight(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyInFromRight(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
     {
-        if autolayout
-        {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
-        }
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            if let superView = self.superview
-            {
-                self.frame.origin.x = superView.bounds.width - self.bounds.width
-            }
+            self.frame.origin.x = toValue
             
         }) { (finished) in
             
@@ -76,18 +67,13 @@ public extension UIView
         }
     }
     
-    public func flyInFromLeft(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyInFromLeft(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
     {
-        if autolayout
-        {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
-        }
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            self.frame.origin.x = 0
+            self.frame.origin.x = toValue
             
         }) { (finished) in
             
@@ -96,18 +82,13 @@ public extension UIView
         }
     }
     
-    public func flyOutToTop(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToTop(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
     {
-        if autolayout
-        {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
-        }
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            self.frame.origin.y = 0 - self.bounds.height
+            self.frame.origin.y = toValue
             
         }) { (finished) in
             
@@ -116,21 +97,13 @@ public extension UIView
         }
     }
     
-    public func flyOutToBottom(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToBottom(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
     {
-        if autolayout
-        {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
-        }
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            if let superView = self.superview
-            {
-                self.frame.origin.y = superView.bounds.height
-            }
+            self.frame.origin.y = toValue
             
         }) { (finished) in
             
@@ -139,21 +112,13 @@ public extension UIView
         }
     }
     
-    public func flyOutToRight(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToRight(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
     {
-        if autolayout
-        {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
-        }
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            if let superView = self.superview
-            {
-                self.frame.origin.x = superView.bounds.width
-            }
+            self.frame.origin.x = toValue
             
         }) { (finished) in
             
@@ -162,18 +127,13 @@ public extension UIView
         }
     }
     
-    public func flyOutToLeft(withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToLeft(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
     {
-        if autolayout
-        {
-            let myFrame = self.frame
-            NSLayoutConstraint.deactivate(constraints)
-            self.frame = myFrame
-        }
+        deactivateConstraints()
         
         UIView.animate(withDuration: duration, animations: {
             
-            self.frame.origin.x = 0 - self.bounds.height
+            self.frame.origin.x = toValue
             
         }) { (finished) in
             
