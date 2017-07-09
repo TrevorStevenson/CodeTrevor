@@ -37,7 +37,7 @@ public extension UIView
         }
     }
     
-    public func flyInFromBottom(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyInFromBottom(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         deactivateConstraints()
         
@@ -52,7 +52,7 @@ public extension UIView
         }
     }
     
-    public func flyInFromRight(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyInFromRight(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         deactivateConstraints()
         
@@ -67,7 +67,7 @@ public extension UIView
         }
     }
     
-    public func flyInFromLeft(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyInFromLeft(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         deactivateConstraints()
         
@@ -82,7 +82,7 @@ public extension UIView
         }
     }
     
-    public func flyOutToTop(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToTop(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         deactivateConstraints()
         
@@ -97,7 +97,7 @@ public extension UIView
         }
     }
     
-    public func flyOutToBottom(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToBottom(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         deactivateConstraints()
         
@@ -112,7 +112,7 @@ public extension UIView
         }
     }
     
-    public func flyOutToRight(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToRight(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         deactivateConstraints()
         
@@ -127,7 +127,7 @@ public extension UIView
         }
     }
     
-    public func flyOutToLeft(toValue: CGFloat, withDuration duration: TimeInterval = 1, useAutoLayout autolayout: Bool, completion: @escaping () -> Void = {})
+    public func flyOutToLeft(toValue: CGFloat, withDuration duration: TimeInterval = 1, completion: @escaping () -> Void = {})
     {
         deactivateConstraints()
         
