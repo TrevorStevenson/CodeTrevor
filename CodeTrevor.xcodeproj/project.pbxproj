@@ -13,6 +13,7 @@
 		3B4C6BC31EFEBE2200B97359 /* Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BC21EFEBE2200B97359 /* Fade.swift */; };
 		3B4C6BC51EFEC02F00B97359 /* Fly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BC41EFEC02F00B97359 /* Fly.swift */; };
 		3B4C6BC71EFEC18300B97359 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BC61EFEC18300B97359 /* Object.swift */; };
+		3B8D27B31F2ECFF00063FB25 /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D27B21F2ECFF00063FB25 /* GameCenter.swift */; };
 		3B938F3F1EFF293500EF2923 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B938F3E1EFF293500EF2923 /* Scale.swift */; };
 		3B938F451EFF6D9700EF2923 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B938F441EFF6D9700EF2923 /* LinkedList.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		3B4C6BC21EFEBE2200B97359 /* Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fade.swift; sourceTree = "<group>"; };
 		3B4C6BC41EFEC02F00B97359 /* Fly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fly.swift; sourceTree = "<group>"; };
 		3B4C6BC61EFEC18300B97359 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		3B8D27B21F2ECFF00063FB25 /* GameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
 		3B938F3E1EFF293500EF2923 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		3B938F441EFF6D9700EF2923 /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				3B938F3E1EFF293500EF2923 /* Scale.swift */,
 				3B4C6BC61EFEC18300B97359 /* Object.swift */,
 				3B938F441EFF6D9700EF2923 /* LinkedList.swift */,
+				3B8D27B21F2ECFF00063FB25 /* GameCenter.swift */,
 			);
 			path = CodeTrevor;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			files = (
 				3B4C6BC31EFEBE2200B97359 /* Fade.swift in Sources */,
 				3B4C6BC71EFEC18300B97359 /* Object.swift in Sources */,
+				3B8D27B31F2ECFF00063FB25 /* GameCenter.swift in Sources */,
 				3B938F451EFF6D9700EF2923 /* LinkedList.swift in Sources */,
 				3B938F3F1EFF293500EF2923 /* Scale.swift in Sources */,
 				3B4C6BC51EFEC02F00B97359 /* Fly.swift in Sources */,

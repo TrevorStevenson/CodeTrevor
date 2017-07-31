@@ -19,7 +19,6 @@ public class Node<T>
     }
 }
 
-
 public class LinkedList<T: Equatable>
 {
     public var root: Node<T>?
@@ -63,7 +62,6 @@ public class LinkedList<T: Equatable>
         }
     }
 
-    
     public func find(withValue value: T) -> Node<T>?
     {
         var currentNode = root
