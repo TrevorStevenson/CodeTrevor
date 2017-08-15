@@ -26,4 +26,14 @@ extension UIViewController
             }
         }
     }
+    
+    func showLeaderboard(withIdentifier identifier: String)
+    {
+        let GKVC = GKGameCenterViewController()
+        GKVC.gameCenterDelegate = self as? GKGameCenterControllerDelegate
+        GKVC.viewState = GKGameCenterViewControllerState.leaderboards
+        GKVC.leaderboardIdentifier = identifier
+        
+        present(GKVC, animated: true, completion: nil)
+    }
 }
