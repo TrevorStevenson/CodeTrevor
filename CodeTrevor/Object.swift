@@ -18,6 +18,6 @@ public extension NSObject
     
     public func getAssociatedObject(forKey key: inout String) -> Any
     {
-        return objc_getAssociatedObject(self, key)
+        return objc_getAssociatedObject(self, key) as Any
     }
 }
