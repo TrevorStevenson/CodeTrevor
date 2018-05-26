@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B4216FC20B35EA300415CE7 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4216FB20B35EA300415CE7 /* Pie.swift */; };
 		3B42175720B76AB100415CE7 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42175620B76AB100415CE7 /* Point.swift */; };
+		3B42175920B895D700415CE7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42175820B895D700415CE7 /* Color.swift */; };
 		3B4C6BB21EFEBD1B00B97359 /* CodeTrevor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4C6BA81EFEBD1B00B97359 /* CodeTrevor.framework */; };
 		3B4C6BB71EFEBD1B00B97359 /* CodeTrevorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C6BB61EFEBD1B00B97359 /* CodeTrevorTests.swift */; };
 		3B4C6BB91EFEBD1B00B97359 /* CodeTrevor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B4C6BAB1EFEBD1B00B97359 /* CodeTrevor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		3B4216FB20B35EA300415CE7 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		3B42175620B76AB100415CE7 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		3B42175820B895D700415CE7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3B4C6BA81EFEBD1B00B97359 /* CodeTrevor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CodeTrevor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4C6BAB1EFEBD1B00B97359 /* CodeTrevor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeTrevor.h; sourceTree = "<group>"; };
 		3B4C6BAC1EFEBD1B00B97359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				3B8D27B21F2ECFF00063FB25 /* GameCenter.swift */,
 				3B4216FB20B35EA300415CE7 /* Pie.swift */,
 				3B42175620B76AB100415CE7 /* Point.swift */,
+				3B42175820B895D700415CE7 /* Color.swift */,
 			);
 			path = CodeTrevor;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				3B4216FC20B35EA300415CE7 /* Pie.swift in Sources */,
 				3B938F3F1EFF293500EF2923 /* Scale.swift in Sources */,
 				3B4C6BC51EFEC02F00B97359 /* Fly.swift in Sources */,
+				3B42175920B895D700415CE7 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
