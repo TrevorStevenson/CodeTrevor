@@ -37,25 +37,26 @@ public class Pie: UIView {
         let shapeLayer = CAShapeLayer()
         let colors: [UIColor] = [UIColor(hex: "0984e3", alpha: 1.0), UIColor(hex: "6c5ce7", alpha: 1.0), UIColor(hex: "00b894", alpha: 1.0)]
         let cntr = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
-        let delta: CGFloat = 2
+        let delta: CGFloat = 4
         
         var prevAngle = 3 * CGFloat.pi / 2
         
         for i in 1...sections {
             let sublayer = CAShapeLayer()
             let path = UIBezierPath()
-            path.move(to: CGPoint(point: cntr, offset: delta))
             let startAngle = prevAngle
             var endAngle = prevAngle + (2 * CGFloat.pi / CGFloat(sections))
+            let vertex = CGPoint(point: cntr, offsetX: delta * cos((startAngle + endAngle)/2), offsetY: delta * sin((startAngle + endAngle)/2))
             endAngle = endAngle.truncatingRemainder(dividingBy: 2 * CGFloat.pi)
             prevAngle = endAngle
-            path.addArc(withCenter: cntr, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-            path.addLine(to: cntr)
+            path.move(to: vertex)
+            path.addArc(withCenter: vertex, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+            path.addLine(to: vertex)
             path.close()
             sublayer.path = path.cgPath
             sublayer.fillColor = colors[i % colors.count].cgColor
-            sublayer.strokeColor = colors[i % colors.count].darker(factor: 0.25).cgColor
-            sublayer.lineWidth = 2.0
+            sublayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
+            sublayer.lineWidth = 4.0
             shapeLayer.addSublayer(sublayer)
         }
         

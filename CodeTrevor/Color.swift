@@ -10,8 +10,8 @@ import Foundation
 
 public extension UIColor
 {
-    public convenience init(hex: String, alpha: CGFloat) {
-        
+    public convenience init(hex: String, alpha: CGFloat)
+    {
         guard hex.count != 0 else {
             self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
             return
