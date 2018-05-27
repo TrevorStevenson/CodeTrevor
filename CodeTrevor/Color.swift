@@ -50,4 +50,40 @@ public extension UIColor
         
         return UIColor(red: red * factor, green: green * factor, blue: blue * factor, alpha: 1.0)
     }
+    
+    static var electronBlue: UIColor {
+        return UIColor(hex: "0984e3", alpha: 1.0)
+    }
+    
+    static var mintLeaf: UIColor {
+        return UIColor(hex: "00b894", alpha: 1.0)
+    }
+    
+    static var exodusFruit: UIColor {
+        return UIColor(hex: "6c5ce7", alpha: 1.0)
+    }
+    
+    static var orangeVille: UIColor {
+        return UIColor(hex: "e17055", alpha: 1.0)
+    }
+    
+    static var prunusAvium: UIColor {
+        return UIColor(hex: "e84393", alpha: 1.0)
+    }
+    
+    static var brightYarrow: UIColor {
+        return UIColor(hex: "fdcb6e", alpha: 1.0)
+    }
+    
+    static var robinsEggBlue: UIColor {
+        return UIColor(hex: "00cec9", alpha: 1.0)
+    }
+    
+    static var chiGong: UIColor {
+        return UIColor(hex: "d63031", alpha: 1.0)
+    }
+    
+    static var draculaOrchid: UIColor {
+        return UIColor(hex: "2d3436", alpha: 1.0)
+    }
 }

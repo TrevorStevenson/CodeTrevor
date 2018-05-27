@@ -10,7 +10,7 @@ import Foundation
 import ObjectiveC
 
 public extension NSObject
-{    
+{
     public func set(associatedObject: Any, forKey key: inout String)
     {
         objc_setAssociatedObject(self, key, associatedObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

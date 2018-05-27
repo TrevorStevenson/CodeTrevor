@@ -12,19 +12,21 @@ public class Pie: UIView {
     
     var sections: Int = 0
     var radius: CGFloat = 0
+    var delta: CGFloat = 5
     
     override public init(frame: CGRect)
     {
         super.init(frame: frame)
     }
     
-    public init(frame: CGRect, sections: Int, radius: CGFloat)
+    public init(center: CGPoint, sections: Int, radius: CGFloat, separation: CGFloat)
     {
-        super.init(frame: frame)
+        super.init(frame: CGRect(origin: CGPoint(point: center, offset: -radius/2), size: CGSize(width: radius, height: radius)))
         self.sections = sections
         self.radius = radius
         self.backgroundColor = .clear
         self.isOpaque = false
+        self.delta = separation
     }
     
     required public init?(coder aDecoder: NSCoder)
@@ -35,9 +37,8 @@ public class Pie: UIView {
     override public func draw(_ rect: CGRect)
     {
         let shapeLayer = CAShapeLayer()
-        let colors: [UIColor] = [UIColor(hex: "0984e3", alpha: 1.0), UIColor(hex: "6c5ce7", alpha: 1.0), UIColor(hex: "00b894", alpha: 1.0)]
+        let colors: [UIColor] = [.electronBlue, .brightYarrow, .chiGong, .exodusFruit, .orangeVille, .draculaOrchid, .prunusAvium, .robinsEggBlue]
         let cntr = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
-        let delta: CGFloat = 4
         
         var prevAngle = 3 * CGFloat.pi / 2
         
