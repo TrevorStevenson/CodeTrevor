@@ -55,7 +55,6 @@ public class Pie: UIView {
             let path = UIBezierPath()
             let startAngle = prevAngle
             var endAngle = startAngle + (2 * CGFloat.pi * values[i] / totalValue)
-            //let vertex = CGPoint(point: cntr, offsetX: separation * cos((startAngle + endAngle)/2), offsetY: separation * sin((startAngle + endAngle)/2))
             endAngle = endAngle.truncatingRemainder(dividingBy: 2 * CGFloat.pi)
 
             prevAngle = endAngle

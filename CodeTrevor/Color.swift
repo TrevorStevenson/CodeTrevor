@@ -86,4 +86,12 @@ public extension UIColor
     static var draculaOrchid: UIColor {
         return UIColor(hex: "2d3436", alpha: 1.0)
     }
+    
+    static var americanRiver: UIColor {
+        return UIColor(hex: "636e72", alpha: 1.0)
+    }
+    
+    static var soothingBreeze: UIColor {
+        return UIColor(hex: "b2bec3", alpha: 1.0)
+    }
 }
