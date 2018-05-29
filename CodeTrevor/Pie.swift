@@ -17,15 +17,22 @@ public class Pie: UIView {
     public var labels: [String] = []
     public var labelFont: UIFont = UIFont.systemFont(ofSize: 17)
     var totalValue: CGFloat = 0
+    var showLegend: Bool = false
+    public var callback: (String) -> () = {_ in }
     
     override public init(frame: CGRect)
     {
         super.init(frame: frame)
     }
     
-    public init(center: CGPoint, radius: CGFloat, values: [CGFloat])
+    public init(center: CGPoint, radius: CGFloat, values: [CGFloat], showLegend: Bool = false)
     {
-        super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + CGFloat(values.count) * 20.0 + 15)))
+        if showLegend {
+            super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + 20)))
+        }
+        else {
+            super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + CGFloat(values.count) * 20.0 + 15)))
+        }
         
         self.sections = values.count
         self.radius = radius
@@ -35,6 +42,7 @@ public class Pie: UIView {
         for value in values {
             self.totalValue += value
         }
+        self.showLegend = showLegend
     }
     
     required public init?(coder aDecoder: NSCoder)
@@ -65,24 +73,32 @@ public class Pie: UIView {
             sublayer.fillColor = colors[i % colors.count].cgColor
             sublayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
             sublayer.lineWidth = 2.0
-            
+                        
             shapeLayer.addSublayer(sublayer)
-            let legendLayer = CAShapeLayer()
-            let legendSquare = UIBezierPath(roundedRect: CGRect(x: 20, y: currentY, width: 10, height: 10), cornerRadius: 5)
-            legendLayer.path = legendSquare.cgPath
-            legendLayer.fillColor = colors[i % colors.count].cgColor
-            legendLayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
-            legendLayer.lineWidth = 2.0
-            layer.addSublayer(legendLayer)
             
-            let legendLabel = UILabel(frame: CGRect(x: 50, y: currentY, width: frame.size.width-60, height: 12))
-            legendLabel.text = labels[i]
-            legendLabel.textColor = .black
-            legendLabel.font = labelFont
-            addSubview(legendLabel)
-            currentY += 20
+            if showLegend {
+                let legendLayer = CAShapeLayer()
+                let legendSquare = UIBezierPath(roundedRect: CGRect(x: 20, y: currentY, width: 10, height: 10), cornerRadius: 5)
+                legendLayer.path = legendSquare.cgPath
+                legendLayer.fillColor = colors[i % colors.count].cgColor
+                legendLayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
+                legendLayer.lineWidth = 2.0
+                layer.addSublayer(legendLayer)
+                
+                let legendLabel = UILabel(frame: CGRect(x: 50, y: currentY, width: frame.size.width-60, height: 12))
+                legendLabel.text = labels[i]
+                legendLabel.textColor = .black
+                legendLabel.font = labelFont
+                addSubview(legendLabel)
+                currentY += 20
+            }
         }
         
         layer.addSublayer(shapeLayer)
+    }
+    
+    public func tapSlice(id: String)
+    {
+        
     }
 }
