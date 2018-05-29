@@ -12,6 +12,22 @@ public class TrevButton: UIButton
 {
     public var color: UIColor = UIColor.americanRiver
     
+    public override var isHighlighted: Bool {
+        get {
+            return super.isHighlighted
+        }
+        set {
+            if newValue {
+                self.alpha = 0.6
+            }
+            else {
+                self.alpha = 1.0
+            }
+            
+            super.isHighlighted = newValue
+        }
+    }
+    
     public init(center: CGPoint, width: CGFloat, height: CGFloat)
     {
         super.init(frame: CGRect(center: center, width: width, height: height))
