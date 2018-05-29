@@ -12,7 +12,6 @@ public class Pie: UIView {
     
     var sections: Int = 0
     var radius: CGFloat = 0
-    public var separation: CGFloat = 5
     public var colors: [UIColor] = [.electronBlue, .brightYarrow, .chiGong, .exodusFruit, .orangeVille, .draculaOrchid, .prunusAvium, .robinsEggBlue]
     var values: [CGFloat] = []
     public var labels: [String] = []
@@ -26,7 +25,7 @@ public class Pie: UIView {
     
     public init(center: CGPoint, radius: CGFloat, values: [CGFloat])
     {
-        super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + CGFloat(values.count) * 30.0 + 15)))
+        super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + CGFloat(values.count) * 20.0 + 15)))
         
         self.sections = values.count
         self.radius = radius
@@ -69,19 +68,19 @@ public class Pie: UIView {
             
             shapeLayer.addSublayer(sublayer)
             let legendLayer = CAShapeLayer()
-            let legendSquare = UIBezierPath(roundedRect: CGRect(x: 20, y: currentY, width: 20, height: 20), cornerRadius: 5)
+            let legendSquare = UIBezierPath(roundedRect: CGRect(x: 20, y: currentY, width: 10, height: 10), cornerRadius: 5)
             legendLayer.path = legendSquare.cgPath
             legendLayer.fillColor = colors[i % colors.count].cgColor
             legendLayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
             legendLayer.lineWidth = 2.0
             layer.addSublayer(legendLayer)
             
-            let legendLabel = UILabel(frame: CGRect(x: 60, y: currentY, width: frame.size.width-60, height: 20))
+            let legendLabel = UILabel(frame: CGRect(x: 50, y: currentY, width: frame.size.width-60, height: 12))
             legendLabel.text = labels[i]
             legendLabel.textColor = .black
             legendLabel.font = labelFont
             addSubview(legendLabel)
-            currentY += 30
+            currentY += 20
         }
         
         layer.addSublayer(shapeLayer)

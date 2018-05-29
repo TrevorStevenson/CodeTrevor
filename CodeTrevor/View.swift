@@ -10,6 +10,22 @@ import Foundation
 
 public extension UIView
 {
+    public var centerX: CGFloat {
+        return frame.size.width/2
+    }
+    
+    public var centerY: CGFloat {
+        return frame.size.height/2
+    }
+    
+    public var width: CGFloat {
+        return frame.size.width
+    }
+    
+    public var height: CGFloat {
+        return frame.size.height
+    }
+    
     public func createBackground(color: UIColor, factor: CGFloat = 0.75)
     {
         self.backgroundColor = color
