@@ -37,7 +37,7 @@ public extension UIView
         path.close()
         accentLayer.path = path.cgPath
         accentLayer.fillColor = color.darker(factor: factor).cgColor
-        self.layer.addSublayer(accentLayer)
+        self.layer.insertSublayer(accentLayer, at: 0)
     }
     
 }

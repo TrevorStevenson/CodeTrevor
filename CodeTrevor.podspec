@@ -6,9 +6,10 @@ Pod::Spec.new do |s|
   s.name = "CodeTrevor"
   s.summary = "An iOS Swift Framework."
   s.requires_arc = true
+  s.swift_version = "4.0"
 
   # 2
-  s.version = "1.0.4"
+  s.version = "1.0.5"
 
   # 3
   s.license = { :type => "MIT", :file => "LICENSE" }
