@@ -97,6 +97,24 @@ public class Pie: UIView {
         layer.addSublayer(shapeLayer)
     }
     
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        let touch = touches.first
+        
+        guard let touchPoint = touch?.location(in: self) else { return }
+        
+        guard let sublayers = layer.sublayers as? [CAShapeLayer] else { return }
+        guard let subsublayers = sublayers.first?.sublayers as? [CAShapeLayer] else { return }
+        
+        for layer in subsublayers {
+            if let path = layer.path, path.contains(touchPoint) {
+                print(layer)
+                layer.opacity = 0.5
+                print("yay")
+            }
+        }
+    }
+    
     public func tapSlice(id: String)
     {
         
