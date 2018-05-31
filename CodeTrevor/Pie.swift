@@ -19,6 +19,7 @@ public class Pie: UIView {
     var totalValue: CGFloat = 0
     var showLegend: Bool = false
     public var callback: (String) -> () = {_ in }
+    var dict: [Int:CAShapeLayer] = [:]
     
     override public init(frame: CGRect)
     {
@@ -72,9 +73,10 @@ public class Pie: UIView {
             sublayer.path = path.cgPath
             sublayer.fillColor = colors[i % colors.count].cgColor
             sublayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
-            sublayer.lineWidth = 2.0
+            sublayer.lineWidth = 1.5
                         
             shapeLayer.addSublayer(sublayer)
+            dict[i] = sublayer
             
             if showLegend {
                 let legendLayer = CAShapeLayer()
@@ -106,17 +108,32 @@ public class Pie: UIView {
         guard let sublayers = layer.sublayers as? [CAShapeLayer] else { return }
         guard let subsublayers = sublayers.first?.sublayers as? [CAShapeLayer] else { return }
         
-        for layer in subsublayers {
-            if let path = layer.path, path.contains(touchPoint) {
-                print(layer)
-                layer.opacity = 0.5
-                print("yay")
+        for shapeLayer in subsublayers {
+            if let path = shapeLayer.path, path.contains(touchPoint) {
+                shapeLayer.opacity = 0.5
             }
         }
     }
-    
-    public func tapSlice(id: String)
+
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        let touch = touches.first
+        
+        guard let touchPoint = touch?.location(in: self) else { return }
+        
+        guard let sublayers = layer.sublayers as? [CAShapeLayer] else { return }
+        guard let subsublayers = sublayers.first?.sublayers as? [CAShapeLayer] else { return }
+        
+        for layer in subsublayers {
+            if let path = layer.path, path.contains(touchPoint) {
+                layer.opacity = 1.0
+                for i in 0..<sections {
+                    if dict[i] == layer {
+                        callback(labels[i])
+                    }
+                }
+            }
+        }
         
     }
 }

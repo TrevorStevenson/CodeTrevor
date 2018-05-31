@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension UIView
+public extension CALayer
 {
     public func scale(from: Float, to: Float, withDuration duration: TimeInterval, repeatCount: Float, autoreverses: Bool)
     {
@@ -18,7 +18,7 @@ public extension UIView
         scaleAnimation.duration = duration
         scaleAnimation.repeatCount = repeatCount
         scaleAnimation.autoreverses = autoreverses
-        layer.add(scaleAnimation, forKey: nil)
+        self.add(scaleAnimation, forKey: nil)
     }
     
     public func scaleUp(withDuration duration: TimeInterval, to: Float = 1.25, completion: () -> Void = {})
