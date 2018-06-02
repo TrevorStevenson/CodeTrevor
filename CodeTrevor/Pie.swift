@@ -71,10 +71,25 @@ public class Pie: UIView {
             path.addLine(to: cntr)
             path.close()
             sublayer.path = path.cgPath
-            sublayer.fillColor = colors[i % colors.count].cgColor
+            sublayer.fillColor = UIColor.clear.cgColor
             sublayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
             sublayer.lineWidth = 1.5
-                        
+            
+            let anim = CABasicAnimation(keyPath: "strokeEnd")
+            anim.fromValue = 0.0
+            anim.toValue = 1.0
+            anim.duration = 1
+            sublayer.add(anim, forKey: "strokeAnimation")
+            
+            let fillAnim = CABasicAnimation(keyPath: "fillColor")
+            fillAnim.fromValue = UIColor.clear.cgColor
+            fillAnim.toValue = colors[i % colors.count].cgColor
+            fillAnim.duration = 1
+            fillAnim.beginTime = CACurrentMediaTime() + anim.duration
+            fillAnim.isRemovedOnCompletion = false
+            fillAnim.fillMode = kCAFillModeForwards
+            sublayer.add(fillAnim, forKey: "fillAnimation")
+            
             shapeLayer.addSublayer(sublayer)
             dict[i] = sublayer
             
