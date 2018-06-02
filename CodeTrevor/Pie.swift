@@ -29,10 +29,10 @@ public class Pie: UIView {
     public init(center: CGPoint, radius: CGFloat, values: [CGFloat], showLegend: Bool = false)
     {
         if showLegend {
-            super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + 20)))
+            super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + CGFloat(values.count) * 20.0 + 15)))
         }
         else {
-            super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + CGFloat(values.count) * 20.0 + 15)))
+            super.init(frame: CGRect(origin: CGPoint(point: center, offset:-radius-10), size: CGSize(width: 2*radius+20, height: 2*radius + 20)))
         }
         
         self.sections = values.count
