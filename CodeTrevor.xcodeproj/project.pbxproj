@@ -23,6 +23,7 @@
 		3B938F3F1EFF293500EF2923 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B938F3E1EFF293500EF2923 /* Scale.swift */; };
 		3B938F451EFF6D9700EF2923 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B938F441EFF6D9700EF2923 /* LinkedList.swift */; };
 		3BAE0F9320C342A20029A72C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE0F9220C342A20029A72C /* Currency.swift */; };
+		3BAE0F9520C355EC0029A72C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE0F9420C355EC0029A72C /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		3B938F3E1EFF293500EF2923 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		3B938F441EFF6D9700EF2923 /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		3BAE0F9220C342A20029A72C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		3BAE0F9420C355EC0029A72C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				3B777ED220BC89B80055B1B1 /* Rect.swift */,
 				3B777ED620BCA5C00055B1B1 /* TrevButton.swift */,
 				3BAE0F9220C342A20029A72C /* Currency.swift */,
+				3BAE0F9420C355EC0029A72C /* LoadingView.swift */,
 			);
 			path = CodeTrevor;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				3B777ED320BC89B80055B1B1 /* Rect.swift in Sources */,
 				3B777ED120BC86B90055B1B1 /* View.swift in Sources */,
 				3B4C6BC71EFEC18300B97359 /* Object.swift in Sources */,
+				3BAE0F9520C355EC0029A72C /* LoadingView.swift in Sources */,
 				3B8D27B31F2ECFF00063FB25 /* GameCenter.swift in Sources */,
 				3B938F451EFF6D9700EF2923 /* LinkedList.swift in Sources */,
 				3B4216FC20B35EA300415CE7 /* Pie.swift in Sources */,
