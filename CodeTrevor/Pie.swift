@@ -129,7 +129,9 @@ public class Pie: UIView {
                 layer.opacity = 1.0
                 for i in 0..<sections {
                     if dict[i] == layer {
-                        callback(labels[i])
+                        if labels.count > i {
+                            callback(labels[i])
+                        }
                     }
                 }
             }
