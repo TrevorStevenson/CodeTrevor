@@ -16,6 +16,7 @@ public class Pie: UIView {
     var values: [CGFloat] = []
     public var labels: [String] = []
     public var labelFont: UIFont = UIFont.systemFont(ofSize: 17)
+    public var borderWidth: CGFloat = 1.5
     var totalValue: CGFloat = 0
     var showLegend: Bool = false
     public var callback: (String) -> () = {_ in }
@@ -73,7 +74,7 @@ public class Pie: UIView {
             sublayer.path = path.cgPath
             sublayer.fillColor = UIColor.clear.cgColor
             sublayer.strokeColor = colors[i % colors.count].darker(factor: 0.5).cgColor
-            sublayer.lineWidth = 1.5
+            sublayer.lineWidth = borderWidth
             
             let anim = CABasicAnimation(keyPath: "strokeEnd")
             anim.fromValue = 0.0
