@@ -17,6 +17,8 @@ public class Pie: UIView {
     public var labels: [String] = []
     public var labelFont: UIFont = UIFont.systemFont(ofSize: 17)
     public var borderWidth: CGFloat = 1.5
+    public var strokeDuration: CFTimeInterval = 1
+    public var fillDuration: CFTimeInterval = 1
     var totalValue: CGFloat = 0
     var showLegend: Bool = false
     public var callback: (String) -> () = {_ in }
@@ -79,13 +81,13 @@ public class Pie: UIView {
             let anim = CABasicAnimation(keyPath: "strokeEnd")
             anim.fromValue = 0.0
             anim.toValue = 1.0
-            anim.duration = 1
+            anim.duration = strokeDuration
             sublayer.add(anim, forKey: "strokeAnimation")
             
             let fillAnim = CABasicAnimation(keyPath: "fillColor")
             fillAnim.fromValue = UIColor.clear.cgColor
             fillAnim.toValue = colors[i % colors.count].cgColor
-            fillAnim.duration = 1
+            fillAnim.duration = fillDuration
             fillAnim.beginTime = CACurrentMediaTime() + anim.duration
             fillAnim.isRemovedOnCompletion = false
             fillAnim.fillMode = kCAFillModeForwards
