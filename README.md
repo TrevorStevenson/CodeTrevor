@@ -3,8 +3,10 @@ iOS Swift framework.
 
 Features include:
 
-*Fade animation
-*Fly animation
+* Fade animation
+
+* Fly animation
+
 *Scale animation
 *New initializers for CGPoint and CGRect
 -Create UIColor with hex string
